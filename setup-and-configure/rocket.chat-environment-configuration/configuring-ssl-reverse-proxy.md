@@ -169,3 +169,10 @@ yourdomain.com {
         import cors https://sub.domain.livechat
 }
 ```
+add the cors include to the top of your `Caddyfile` in case its missing:
+```
+(cors) {
+        @origin{args.0} header Origin {args.0}
+        header @origin{args.0} Access-Control-Allow-Origin "{args.0}"
+}
+```
